@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Community Event Portal</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+</head>
+<body onload="pageLoaded()">
+  <!-- Navigation -->
+  <nav>
+    <ul class="nav-list">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="help.html" target="_blank">Help</a></li>
+    </ul>
+  </nav>
+
+  <!-- Welcome Banner -->
+  <div id="welcomeBanner">Welcome to our Community Portal! <span style="color: red; font-weight: bold;">Special Offer</span></div>
+
+  <!-- Main -->
+  <main>
+    <!-- Event Section -->
+    <section id="events">
+      <h2 class="highlight">Upcoming Community Events</h2>
+
+      <!-- Image Gallery -->
+      <table>
+        <caption>Gallery from Past Events</caption>
+        <tr>
+          <td><img src="event1.png" class="gallery-img" alt="Event 1" title="Music Fest"></td>
+          <td><img src="event2.png" class="gallery-img" alt="Event 2" title="Food Drive"></td>
+          <td><img src="event3.png" class="gallery-img" alt="Event 3" title="Cleanup Day"></td>
+        </tr>
+        <tr>
+          <td><img src="event4.png" class="gallery-img" alt="Event 4" title="Workshop"></td>
+          <td><img src="event5.png" class="gallery-img" alt="Event 5" title="Fundraiser"></td>
+          <td><img src="event6.png" class="gallery-img" alt="Event 6" title="Book Fair"></td>
+        </tr>
+      </table>
+
+      <!-- Registration Form -->
+      <form id="registerForm">
+        <h3>Register for an Event</h3>
+        <label>Name: <input type="text" name="name" placeholder="Enter your name" required autofocus></label><br>
+        <label>Email: <input type="email" name="email" placeholder="Enter your email" required></label><br>
+        <label>Phone: <input type="text" id="phone" onblur="validatePhone(this)"></label><br>
+        <label>Date: <input type="date" name="date" required></label><br>
+        <label>Event Type:
+          <select name="eventType" id="eventType" onchange="showFee()">
+            <option value="music">Music</option>
+            <option value="sports">Sports</option>
+            <option value="tech">Tech Talk</option>
+          </select>
+        </label>
+        <span id="feeInfo"></span><br>
+        <label>Message:<br>
+          <textarea id="message" onkeydown="countCharacters()"></textarea>
+          <div id="charCount"></div>
+        </label><br>
+        <button type="submit" onclick="confirmSubmit(event)" id="registerBtn">Submit</button>
+        <output id="confirmation"></output>
+        <button type="button" onclick="clearPreferences()">Clear Preferences</button>
+      </form>
+    </section>
+
+    <!-- Video Invite -->
+    <section>
+      <h3>Watch Our Promo</h3>
+      <video id="promoVideo" controls oncanplay="videoReady()" ondblclick="enlargeVideo()">
+        <source src="promo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </section>
+
+    <!-- Community Bulletin -->
+    <section style="column-count: 2; column-gap: 30px; column-rule: 1px solid gray;">
+      <h3>Community Bulletin</h3>
+      <p>This week's news includes several initiatives taken by the youth committee and feedback from previous events. Stay updated!</p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Local Community Council</p>
+  </footer>
+</body>
+</html>
